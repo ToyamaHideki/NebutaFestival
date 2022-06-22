@@ -1,0 +1,31 @@
+/******************************************************************
+
+Stylesheet: 1280px以上のモニタで適用
+
+******************************************************************/
+.slider{
+    &__img{
+      height: 500px;
+    }
+
+    &__schedule{
+      position: absolute;
+      bottom: 3%;
+      left: 80%;
+    }
+    &__scheImg{
+      height: 400px;;
+    }
+  }
+
+  .event{
+    &__origin-bgimg{
+        top: 18%;
+        
+    }
+      &__buy-bgimg{
+        top: 57%;
+        height: 500px;
+      }
+    
+  }

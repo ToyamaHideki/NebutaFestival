@@ -1,0 +1,200 @@
+/******************************************************************
+
+Stylesheet: 共通項
+
+******************************************************************/
+
+// 要素を統一化
+// 各要素に値を設定するではなく初めから設定値を決めて、クラスを付与していく
+// base.scssには基本的にスマホ用の設定値を記述していく
+
+// スマホ用フォントサイズ
+.font-sm {
+  font-size: 13px;
+}
+.font-md {
+  font-size: 17px;
+}
+.font-lr {
+  font-size: 17px;
+}
+.font-lg {
+  font-size: 25px;
+}
+
+// margin-bottomの設定
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+.mb-lg {
+  margin-bottom: 80px !important;
+}
+
+// margin-bottomの設定
+.pb-sm {
+  padding-bottom: 16px !important;
+}
+.pb-lg {
+  padding-bottom: 80px !important;
+}
+
+.event-bgimgsetting {
+  position: absolute;
+  z-index: -1;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 20%;
+  }
+  max-width: 95%;
+
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+
+  box-shadow: -2px 0px 12px 10px #ffeac3;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+body {
+  background-color: $cBasecolor;
+  font-family: "Noto Serif JP", serif;
+}
+
+#none{
+  display: none;
+}
+
+.slider {
+  margin-top: 50px;
+  position: relative;
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__img {
+    height: 150px;
+  }
+
+  &__schedule {
+    position: absolute;
+    bottom: 5%;
+    left: 10px;
+  }
+  &__scheImg {
+    height: 180px;
+  }
+}
+
+// メニューから引用　後で変更加える
+
+
+#footer {
+  color: $cWhite;
+  background: #333;
+  padding: 20px;
+}
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝イベント領域＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+.event {
+  position: relative;
+
+  &__inner {
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    padding: 5%;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  &__item {
+    color: $cWhite;
+    -webkit-text-stroke: 0.2px rgb(124, 14, 14);
+    height: 600px;
+  }
+
+  &__h1 {
+    @extend .font-lr;
+    margin: 40px 0;
+  }
+  &__texts {
+    @extend .font-sm;
+    text-align: left;
+
+    & .class_1 {
+      text-align: center;
+    }
+
+    margin: 100px 0;
+  }
+
+  // 背景画像
+  &__origin-bgimg {
+    @extend .event-bgimgsetting;
+    top: 14%;
+    right: 0;
+    background-image: url(../../images/origin-bgimg.jpeg);
+    height: 550px;
+  }
+
+  &__buy-bgimg {
+    @extend .event-bgimgsetting;
+    top: 60%;
+    left: 0;
+    background-image: url(../../images/buy-bgimg.jpg);
+    height: 600px;
+  }
+}
+
+.footer {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__sns {
+    & ul {
+      list-style: none;
+      cursor: pointer;
+
+      a {
+        color: $cWhite;
+      }
+
+      li:nth-child(1) {
+        background: url(../../images/twitter.png) left 0px top 3px no-repeat;
+        background-size: 15px auto;
+        padding-left: 20px;
+      }
+      li:nth-child(2) {
+        background: url(../../images/facebook.png) left 0px top 3px no-repeat;
+        background-size: 15px auto;
+        padding-left: 20px;
+      }
+      li:nth-child(3) {
+        background: url(../../images/instagram.png) left 0px top 3px no-repeat;
+        background-size: 15px auto;
+        padding-left: 20px;
+      }
+    }
+  }
+  &__iframe{
+
+    width: 280px;
+    height: 200px;
+  }
+
+}

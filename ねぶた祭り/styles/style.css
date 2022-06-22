@@ -1,0 +1,698 @@
+@charset "UTF-8";
+/*==================================================
+スライダーのためのcss
+===================================*/
+#slider {
+  width: 100%;
+  height: 100vh;
+  /*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+  margin-bottom: 100px;
+}
+
+/*========= ナビゲーションのためのCSS ===============*/
+#g-nav {
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position: fixed;
+  z-index: 999;
+  /*ナビのスタート位置と形状*/
+  top: 0;
+  right: -120%;
+  width: 100%;
+  height: 100vh;
+  /*ナビの高さ*/
+  background: rgba(101, 100, 100, 0.5);
+  /*動き*/
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#g-nav.panelactive {
+  right: 0;
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav.panelactive #g-nav-list {
+  /*ナビの数が増えた場合縦スクロール*/
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  /*表示する高さ*/
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+/*リストのレイアウト設定*/
+#g-nav li {
+  list-style: none;
+  text-align: center;
+}
+
+#g-nav li a {
+  color: #a20303;
+  text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, 0px 1px 0 #fff, -1px 0 #fff, -1px 0 0 #fff, 1px 0 0 #fff;
+  text-decoration: none;
+  padding-bottom: 10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn1 {
+  position: fixed;
+  z-index: 9999;
+  /*ボタンを最前面に*/
+  top: 10px;
+  right: 0px;
+  cursor: pointer;
+  width: 80px;
+  height: 100px;
+}
+
+/*×に変化*/
+.openbtn1 span {
+  display: inline-block;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: white;
+  width: 45%;
+}
+
+.openbtn1 span:nth-of-type(1) {
+  top: 15px;
+}
+
+.openbtn1 span:nth-of-type(2) {
+  top: 23px;
+}
+
+.openbtn1 span:nth-of-type(3) {
+  top: 31px;
+}
+
+.openbtn1.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  -webkit-transform: translateY(6px) rotate(-45deg);
+          transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn1.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  -webkit-transform: translateY(-6px) rotate(45deg);
+          transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+/*========= レイアウトのためのCSS ===============*/
+h1 {
+  font-size: 1.2rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+
+p {
+  margin-top: 20px;
+}
+
+small {
+  color: #fff;
+  display: block;
+  text-align: center;
+}
+
+#header {
+  width: 100%;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+section {
+  padding: 100px 30px;
+}
+
+section:nth-child(2n) {
+  background: #f3f3f3;
+}
+
+#footer {
+  background: #333;
+  padding: 20px;
+}
+
+/*=== 9-1-3 マウスが動いてスクロールを促す ====*/
+/*スクロールダウン全体の場所*/
+.scrolldown3 {
+  /*描画位置※位置は適宜調整してください*/
+  position: absolute;
+  bottom: 30px;
+  right: 50%;
+  /*マウスの動き1.6秒かけて動く永遠にループ*/
+  -webkit-animation: mousemove 1.6s ease-in-out infinite;
+          animation: mousemove 1.6s ease-in-out infinite;
+}
+
+/*下からの距離が変化して上から下に動く*/
+@-webkit-keyframes mousemove {
+  0% {
+    bottom: 10px;
+  }
+  50% {
+    bottom: 5px;
+  }
+  100% {
+    bottom: 10px;
+  }
+}
+@keyframes mousemove {
+  0% {
+    bottom: 10px;
+  }
+  50% {
+    bottom: 5px;
+  }
+  100% {
+    bottom: 10px;
+  }
+}
+
+/*Scrollテキストの描写*/
+.scrolldown3 span {
+  /*描画位置*/
+  position: absolute;
+  left: -15px;
+  bottom: 45px;
+  /*テキストの形状*/
+  color: #eee;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+/*マウスの中の線描写 */
+.scrolldown3 span::after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  top: 10px;
+  left: 17px;
+  /*線の形状*/
+  width: 1px;
+  height: 15px;
+  background: #eee;
+  /*線の動き1.4秒かけて動く。永遠にループ*/
+  -webkit-animation: mousepathmove 1.4s linear infinite;
+          animation: mousepathmove 1.4s linear infinite;
+  opacity: 0;
+}
+
+/*上からの距離・不透明度・高さが変化して上から下に流れる*/
+@-webkit-keyframes mousepathmove {
+  0% {
+    height: 0;
+    top: 10px;
+    opacity: 0;
+  }
+  50% {
+    height: 15px;
+    opacity: 1;
+  }
+  100% {
+    height: 0;
+    top: 30px;
+    opacity: 0;
+  }
+}
+@keyframes mousepathmove {
+  0% {
+    height: 0;
+    top: 10px;
+    opacity: 0;
+  }
+  50% {
+    height: 15px;
+    opacity: 1;
+  }
+  100% {
+    height: 0;
+    top: 30px;
+    opacity: 0;
+  }
+}
+
+/*マウスの描写 */
+.scrolldown3:before {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  /*マウスの形状*/
+  width: 25px;
+  height: 37px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+/*マウスの中の丸の描写*/
+.scrolldown3:after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  /*丸の形状*/
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+/******************************************************************
+
+Stylesheet: 共通項
+
+******************************************************************/
+.font-sm, .event__texts {
+  font-size: 13px;
+}
+
+.font-md {
+  font-size: 17px;
+}
+
+.font-lr, .event__h1 {
+  font-size: 17px;
+}
+
+.font-lg {
+  font-size: 25px;
+}
+
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+
+.mb-lg {
+  margin-bottom: 80px !important;
+}
+
+.pb-sm {
+  padding-bottom: 16px !important;
+}
+
+.pb-lg {
+  padding-bottom: 80px !important;
+}
+
+.event-bgimgsetting, .event__origin-bgimg, .event__buy-bgimg {
+  position: absolute;
+  z-index: -1;
+  max-width: 95%;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+  -webkit-box-shadow: -2px 0px 12px 10px #ffeac3;
+          box-shadow: -2px 0px 12px 10px #ffeac3;
+}
+
+.event-bgimgsetting::before, .event__origin-bgimg::before, .event__buy-bgimg::before {
+  content: "";
+  display: block;
+  padding-top: 20%;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+body {
+  background-color: #191919;
+  font-family: "Noto Serif JP", serif;
+}
+
+#none {
+  display: none;
+}
+
+.slider {
+  margin-top: 50px;
+  position: relative;
+}
+
+.slider__logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slider__img {
+  height: 150px;
+}
+
+.slider__schedule {
+  position: absolute;
+  bottom: 5%;
+  left: 10px;
+}
+
+.slider__scheImg {
+  height: 180px;
+}
+
+#footer {
+  color: white;
+  background: #333;
+  padding: 20px;
+}
+
+.event {
+  position: relative;
+}
+
+.event__inner {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5%;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.event__item {
+  color: white;
+  -webkit-text-stroke: 0.2px #7c0e0e;
+  height: 600px;
+}
+
+.event__h1 {
+  margin: 40px 0;
+}
+
+.event__texts {
+  text-align: left;
+  margin: 100px 0;
+}
+
+.event__texts .class_1 {
+  text-align: center;
+}
+
+.event__origin-bgimg {
+  top: 14%;
+  right: 0;
+  background-image: url(../../images/origin-bgimg.jpeg);
+  height: 550px;
+}
+
+.event__buy-bgimg {
+  top: 60%;
+  left: 0;
+  background-image: url(../../images/buy-bgimg.jpg);
+  height: 600px;
+}
+
+.footer__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footer__sns ul {
+  list-style: none;
+  cursor: pointer;
+}
+
+.footer__sns ul a {
+  color: white;
+}
+
+.footer__sns ul li:nth-child(1) {
+  background: url(../../images/twitter.png) left 0px top 3px no-repeat;
+  background-size: 15px auto;
+  padding-left: 20px;
+}
+
+.footer__sns ul li:nth-child(2) {
+  background: url(../../images/facebook.png) left 0px top 3px no-repeat;
+  background-size: 15px auto;
+  padding-left: 20px;
+}
+
+.footer__sns ul li:nth-child(3) {
+  background: url(../../images/instagram.png) left 0px top 3px no-repeat;
+  background-size: 15px auto;
+  padding-left: 20px;
+}
+
+.footer__iframe {
+  width: 280px;
+  height: 200px;
+}
+
+@media (min-width: 480px) {
+  /******************************************************************
+
+Stylesheet: 480px以上(スマホの横向き)のモニタで適用
+
+******************************************************************/
+  .event__origin-bgimg {
+    top: 17%;
+    height: 350px;
+  }
+  .event__buy-bgimg {
+    top: 60%;
+    height: 450px;
+  }
+}
+
+@media (min-width: 600px) {
+  /******************************************************************
+
+Stylesheet: 600px以上のタブレットやモニタで適用
+
+******************************************************************/
+  .slider__logo {
+    top: auto;
+    bottom: 0;
+  }
+  .slider__img {
+    height: 400px;
+  }
+  .slider__schedule {
+    position: absolute;
+    bottom: 5%;
+    left: 70%;
+  }
+  .slider__scheImg {
+    height: 250px;
+  }
+  .event__origin-bgimg {
+    top: 15%;
+    height: 400px;
+  }
+  .event__buy-bgimg {
+    top: 58%;
+    height: 500px;
+  }
+  .event__texts {
+    font-size: 15px;
+  }
+  .footer__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .footer__iframe {
+    width: 280px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 960px) {
+  /******************************************************************
+
+Stylesheet: 960px以上のモニタで適用
+
+******************************************************************/
+  .font-sm, .event__texts {
+    font-size: 20px;
+  }
+  .font-md {
+    font-size: 22px;
+  }
+  .font-lr, .event__h1 {
+    font-size: 25px;
+  }
+  .font-lg {
+    font-size: 36px;
+  }
+  .mb-lg {
+    margin-bottom: 150px !important;
+  }
+  .pb-lg {
+    padding-bottom: 150px !important;
+  }
+  #none {
+    display: contents;
+  }
+  .nav {
+    top: 0;
+    padding-top: 5px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .nav__bar {
+    position: fixed;
+    padding-top: 25px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    z-index: 100;
+  }
+  .nav__bar ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .nav__bar ul li {
+    list-style: none;
+  }
+  .nav__bar ul a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin-right: 35px;
+  }
+  .slider__img {
+    height: 500px;
+  }
+  .slider__schedule {
+    position: absolute;
+    bottom: 5%;
+    left: 70%;
+  }
+  .slider__scheImg {
+    height: 350px;
+  }
+  .event__origin-bgimg {
+    top: 16%;
+  }
+  .event__buy-bgimg {
+    top: 60%;
+    height: 520px;
+  }
+  .footer__inner {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .footer__iframe {
+    width: 350px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 1280px) {
+  /******************************************************************
+
+Stylesheet: 1280px以上のモニタで適用
+
+******************************************************************/
+  .slider__img {
+    height: 500px;
+  }
+  .slider__schedule {
+    position: absolute;
+    bottom: 3%;
+    left: 80%;
+  }
+  .slider__scheImg {
+    height: 400px;
+  }
+  .event__origin-bgimg {
+    top: 18%;
+  }
+  .event__buy-bgimg {
+    top: 57%;
+    height: 500px;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /******************************************************************
+
+Stylesheet: Retinaディスプレイで適用
+
+******************************************************************/
+  /* 
+
+EXAMPLE 
+.icon {
+	background: url(images/test@2x.png) no-repeat;
+	background-size: 24px 24px;
+}
+
+*/
+}
+
+@media print {
+  /******************************************************************
+
+Stylesheet: プリンタのみに適用
+
+******************************************************************/
+}
+/*# sourceMappingURL=style.css.map */
