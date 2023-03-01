@@ -1,0 +1,102 @@
+/******************************************************************
+
+Stylesheet: 960px以上のモニタで適用
+
+******************************************************************/
+// PC用フォントサイズ
+.font-sm{
+    font-size: 20px;
+   }
+   .font-md{
+       font-size: 22px;
+   }
+   .font-lr{
+       font-size: 25px;
+   }
+   .font-lg{
+       font-size: 36px;
+   }
+
+// PC側にはlgのみ値を変更　smは継承される。
+// margin-bottomの設定
+  .mb-lg {
+    margin-bottom: 150px !important;
+  }
+  // margin-bottomの設定
+  .pb-lg {
+    padding-bottom: 150px !important;
+  }
+
+  #none{
+    display: contents;
+  }
+  .nav{
+    top: 0;
+    padding-top: 5px;
+    box-sizing: border-box;
+  
+    &__bar{
+      position: fixed;
+      
+      padding-top: 25px;
+      box-sizing: border-box;
+      z-index: 100;
+      & ul{
+        display:flex;
+       
+  
+  
+        & li{
+          list-style: none;
+        }
+  
+        & a{
+          display: block;
+          text-decoration: none;
+          color: white;
+          margin-right: 35px;
+        }
+      }
+    }
+  }
+
+
+  .slider{
+    &__img{
+      height: 500px;
+    }
+
+    &__schedule{
+      position: absolute;
+      bottom: 5%;
+      left: 70%;
+    }
+    &__scheImg{
+      height: 350px;;
+    }
+  }
+
+  .event{
+    &__origin-bgimg{
+        top: 16%;
+        
+    }
+      &__buy-bgimg{
+        top: 60%;
+        height: 520px;
+      }
+    
+  }
+
+  .footer{
+    &__inner{
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    &__iframe{
+      width: 350px;
+      height: 300px;
+    }
+  }
+  

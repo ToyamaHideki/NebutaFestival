@@ -1,0 +1,59 @@
+/******************************************************************
+
+Stylesheet: 600px以上のタブレットやモニタで適用
+
+******************************************************************/
+
+
+.slider {
+    &__logo {
+    top: auto;
+    bottom: 0;
+    }
+    &__img{
+        height: 400px;
+      }
+
+  &__schedule{
+    position: absolute;
+    bottom: 5%;
+    left: 70%;
+  }
+  &__scheImg{
+    height: 250px;;
+  }
+}
+
+.event{
+    // 背景画像
+  &__origin-bgimg{
+    top: 15%;
+    height: 400px;
+  }
+
+  &__buy-bgimg{
+    top: 58%;
+    height: 500px;
+  }
+
+  &__texts{
+   font-size: 15px;
+  }
+}
+
+
+.footer {
+  &__inner {
+    display: flex;
+   align-items: center;
+  }
+
+
+  
+  &__iframe{
+
+    width: 280px;
+    height: 200px;
+  }
+
+}
